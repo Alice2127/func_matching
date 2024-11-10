@@ -16,18 +16,21 @@ defmodule FuncMatching do
     :world
   end
 
-  def countelems([]) do
+  def checkelems([]) do
     "空のリストです"
   end
 
-  def countelems([_]) do
+  def checkelems([_]) do
     "リストの要素数は1です"
   end
 
-  def countelems(_) do # 上記以外のそれ以外全部
-    "リストの要素数は2以上であるか、そもそもリストではありません"
+  def checkelems(list) when is_list(list) do
+    "リストの要素数は2以上です"
   end
 
+  def checkelems(_)do
+    "リストではありません"
+  end
 
   def numcheck(0) do
     "0です"

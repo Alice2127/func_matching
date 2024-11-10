@@ -6,17 +6,21 @@ defmodule FuncMatchingTest do
     assert FuncMatching.hello() == :world
   end
 
-  describe "count list elements" do
+  describe "check list elements" do
   test "when list is []" do
-    assert FuncMatching.countelems([]) == "空のリストです"
+    assert FuncMatching.checkelems([]) == "空のリストです"
   end
 
   test "when list has only one element" do
-    assert FuncMatching.countelems([5]) == "リストの要素数は1です"
+    assert FuncMatching.checkelems([5]) == "リストの要素数は1です"
   end
 
   test "when list has more than two elements" do
-    assert FuncMatching.countelems([1, 2, 3]) == "リストの要素数は2以上であるか、そもそもリストではありません"
+    assert FuncMatching.checkelems([1, 2, 3]) == "リストの要素数は2以上です"
+  end
+
+  test "when argument is not a list" do
+    assert FuncMatching.checkelems("hoge") == "リストではありません"
   end
 end
 
